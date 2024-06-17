@@ -70,16 +70,16 @@ const Home: React.FC = () => {
     if (sequence[currentInput.length] === key) {
       setCurrentInput(currentInput + key);
       if (currentInput.length + 1 === sequence.length) {
-        setMessage('Sucesso');
+        setMessage('BOA MENÓ');
         setIsPlaying(false);
         setMessageButton('Jogar novamente')
         setScore(score + 1); // Incrementa a pontuação
         //add sound win
       }
     } else {
-      setMessage('Você falhou!');
+      setMessage('TU é LOOSER, faz o L agora!');
       setIsPlaying(false);
-      setMessageButton('Tentar Novamente')
+      setMessageButton('Vai denovo')
       setScore(0);
       saveScore()
       //add sound lost
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
   };
 
   const saveScore = () => {
-    const playerName = prompt('Digite seu nome:') || 'Anônimo';
+    const playerName = prompt('Qual teu vulgo?:') || 'Desconhecido';
     const newRanking = [...ranking, { name: playerName, score }];
     newRanking.sort((a, b) => b.score - a.score);
     if (newRanking.length > 10) newRanking.pop(); // Mantém apenas os top 10
